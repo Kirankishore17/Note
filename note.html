@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+html{
+    background:url(file.jpeg) no-repeat center fixed;
+    background-size:cover;
+    }
+body{
+    color:rgb(40, 199, 40);
+    /* font-size: 40px; */
+    }
+
+#here{
+    font-family:'Arial';
+    /* font-size: 30px; */
+    color: blueviolet solid;
+    font-size: 60px;
+    }
+#asd{
+    width:650px;
+    height:300px;
+    padding:10px;
+    border: 2px solid rgba(185, 62, 62, 0.801);
+    border-radius: 10px;
+    color:rgba(2, 15, 1, 0.863);
+    font-size: 30px;
+    font-family:cursive;
+    /* box-sizing: border-box; */
+    text-align: center; 
+    margin-top: 15%;
+    margin-left:25%;
+    background-color: rgba(231, 189, 161, 0.596);
+    }
+#save{
+    text-align: center;
+    background-color: transparent;
+
+}
+textarea{
+  
+    resize: none;
+    width: 450px;
+    height: 150px;
+    padding: 10px;
+
+}
+#text{
+    font-size: 60px;
+
+}
+</style>
+</head>
+<script>
+        function box(value){
+            return '<textarea>' + value + '</textarea>'
+        }
+    
+       function newbox(){
+             var x=document.getElementById("message").Value;
+             var div=document.createElement('b');
+           div.innerHTML=box(x);
+           div.style.display="inline";
+           document.getElementById("save").appendChild(div);
+           document.getElementById("message").value="";
+       }
+    
+</script>
+<body>
+
+<p id="asd"> 
+    <strong><br>
+        <label id="text">Enter your text here:</label><br>
+        <textarea id="message" placeholder="Type here.. !!!"></textarea><br>
+        <input type="button"  value="Submit" onclick="newbox()">
+            
+    </strong>
+</p>
+<div id="save"> </div>
+</body>
+</html>
