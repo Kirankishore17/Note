@@ -6,16 +6,19 @@ html{
     background:url(file.jpeg) no-repeat center fixed;
     background-size:cover;
     }
-body{
-    color:rgb(40, 199, 40);
-    /* font-size: 40px; */
+#savedbox{
+    color:rgb(3, 2, 0);
+    border-color: rgb(223, 169, 100);
+    border: 2px solid;
+    font-size: 15px; 
+    width: 250px;
+    height: 180px;
     }
 
-#here{
+#clear{
     font-family:'Arial';
-    /* font-size: 30px; */
     color: blueviolet solid;
-    font-size: 60px;
+    font-size: 20px;
     }
 #asd{
     width:650px;
@@ -26,16 +29,21 @@ body{
     color:rgba(2, 15, 1, 0.863);
     font-size: 30px;
     font-family:cursive;
-    /* box-sizing: border-box; */
+    padding-top: 5px;
     text-align: center; 
     margin-top: 15%;
     margin-left:25%;
     background-color: rgba(231, 189, 161, 0.596);
     }
 #save{
+    color: solid rgb(42, 182, 14);
     text-align: center;
     background-color: transparent;
 
+}
+#text:-moz-placeholder{
+    font-size: 12px;
+    color: brown;
 }
 textarea{
   
@@ -47,24 +55,37 @@ textarea{
 }
 #text{
     font-size: 60px;
+    font-stretch: expanded;
 
+}
+#message{
+    font-family: 'Times New Roman';
+    color: rgb(10, 10, 0);
+    font-size: 20px;
+    size: 300px;
 }
 </style>
 </head>
 <script>
-        function box(value){
-            return '<textarea>' + value + '</textarea>'
+        function box(v){
+            return '<textarea id ="savedbox">' + v + '</textarea>' + 
+            '<input type="button" value="close" id="clear" onclick= "closebox(this)"/>'
         }
     
        function newbox(){
              var x=document.getElementById("message").value;
              var div=document.createElement('b');
-           div.innerHTML=box(x);
-           div.style.display="inline";
-           document.getElementById("save").appendChild(div);
-           document.getElementById("message").value="";
+             div.innerHTML=box(x);
+             div.style.display="inline";
+             document.getElementById("save").appendChild(div);
+             document.getElementById("message").value="";
        }
-    
+       function closebox(div){
+           document.getElementById("save").removeChild(div.parentNode);
+       }
+       function clearbox(){
+           document.getElementById("message").value='';
+       }
 </script>
 <body>
 
@@ -72,7 +93,8 @@ textarea{
     <strong><br>
         <label id="text">Enter your text here:</label><br>
         <textarea id="message" placeholder="Type here.. !!!"></textarea><br>
-        <input type="button"  value="Submit" onclick="newbox()">
+        <input type="button" value="Submit" onclick="newbox()"> 
+        <input type="button" value="clear"  onclick="clearbox()">
             
     </strong>
 </p>
